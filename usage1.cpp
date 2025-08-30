@@ -78,14 +78,24 @@ Holder createHolder(int size)
   return Holder(size);
 }
 
+Holder createHolder1(int size)
+{
+  return move(Holder(size)) ;
+}
+
 
 int main()
 {
 	//Copy constructor
     Holder h1 = createHolder(1000)  ;
     printf( "main %p\n" , &h1 ) ;
-    cout << "Before Assignment.\n" << endl ;
+    cout << "Move Copy attempt.\n" << endl ;
+
+    Holder h2 = createHolder1(1000)  ;
+
+
     //Move Assignment operator
+    cout << "Move Assignment.\n" << endl ;
     h1 = createHolder(500);
     printf( "main %p\n" , &h1 ) ;
     cout << "End of main." << endl ;
